@@ -1,3 +1,97 @@
+html {
+  font-family: "Comfortaa", cursive;
+}
+
+input {
+  width: 90vw;
+  text-align: center;
+}
+
+button {
+  width: 5vw;
+  height: 4vh;
+  margin: auto;
+  border: none;
+  color: white;
+  background-color: black;
+
+}
+
+.app {
+  text-align: center;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.heart{
+    position: relative;
+    width: 75px;
+    height: 75px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    background-color: black;
+  }
+  .heart:before,
+  .heart:after{
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    content: '';
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    background-color: black;
+  }
+  .heart:before{
+    bottom: 0px;
+    left: -37.5px;
+  }
+  .heart:after{
+    top: -37.5px;
+    right: 0px;
+  }
+
+  .turn_red {
+    background-color: red;
+  }
+  .turn_red:before,
+  .turn_red:after {
+    background-color: red;
+  }
+
+
+.button_legend {
+    font-size: larger;
+    color: white;
+    position: relative;
+    z-index:1;
+    bottom: 10px;
+    left: -9.5px;
+    transform: rotate(-45deg);
+}
+
+.board {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90vh;
+}
+
+.game {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90vh;
+}
+
 .hidden {
     display: none;
-}
+  }

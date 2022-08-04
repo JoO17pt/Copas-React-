@@ -9,6 +9,8 @@ const Board = (props) => {
   const [points4, setPoints4] = useState(0);
   const [game, setGame] = useState();
   const [hidden, setHidden] = useState("");
+  const [disabled, setDisabled] = useState(false);
+  const [round, setRound] = useState(1);
 
   const handleGame = (e) => {
     setGame(
@@ -27,6 +29,10 @@ const Board = (props) => {
         setPoints4={setPoints4}
         setGame={setGame}
         setHidden={setHidden}
+        endPoints={props.endPoints}
+        setDisable={setDisabled}
+        round={round}
+        setRound={setRound}
       ></Game>
     );
     setHidden('hidden');
@@ -43,7 +49,8 @@ const Board = (props) => {
 
   return (
     <>
-      <div className={hidden}>
+      <div className={hidden + " board"}>
+        <p>Jogo termina aos {props.endPoints} pontos</p>
         <p>
           {props.player1}: {points1} copas
         </p>
@@ -56,11 +63,10 @@ const Board = (props) => {
         <p>
           {props.player4}: {points4} copas
         </p>
-        <p>Jogo termina aos {props.endPoints} pontos</p>
       
-        <button onClick={handleGame}>Registar jogada</button>
+        <button onClick={handleGame} disabled={disabled} className={disabled ? "hidden" : "heart turn_red"}><p className="button_legend">Nova ronda</p></button>
 
-        <button onClick={handleReset}>Novo jogo</button>
+        <button onClick={handleReset} className={disabled ? "heart turn_red" : "heart"}><p className="button_legend">Novo jogo</p></button>
 
       </div>
       {game}

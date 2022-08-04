@@ -13,6 +13,7 @@ function App() {
   const [board, setBoard] = useState();
 
   const handleStart = (e) => {
+    new Audio('/sounds/direita.mp3').play()
     setBoard(
       <Board
         player1={player1.current}
@@ -25,9 +26,6 @@ function App() {
       ></Board>
     );
     setHidden('hidden');
-    // document.querySelectorAll('input').forEach(element => {
-    //   element.value='';
-    // });
   };
 
   const handleSubmit = (e) => {
@@ -55,8 +53,10 @@ function App() {
       endPoints.current > 0
     ) {
       setDisabled(false);
+      document.querySelector('button').classList.add('turn_red');
     } else {
       setDisabled(true);
+      document.querySelector('button').classList.remove('turn_red');
     }
   };
 
@@ -66,7 +66,7 @@ function App() {
       <form onSubmit={handleSubmit}>
         <label>
           Jogador {i}:
-          <input type="text" name={"player" + i} onChange={handleChange} />
+          <p><input type="text" name={"player" + i} onChange={handleChange} /></p>
         </label>
       </form>
     );
@@ -74,19 +74,21 @@ function App() {
 
   return (
     <>
-      <div className={hidden}>
+      <div className={hidden + " app"}>
         {playerArray}
 
         <form onSubmit={handleSubmit}>
           <label>
             Jogar até:
-            <input type="number" name="endPoints" onChange={handleChange} />
+            <p><input type="number" name="endPoints" onChange={handleChange} /></p>
           </label>
         </form>
+        <br/>
 
-        <button disabled={disabled} onClick={handleStart}>
-          Jogar
-        </button>
+        <div className="heart_container">
+          <button disabled={disabled} onClick={handleStart} className="heart"><p className="button_legend">Jogar</p>
+          </button>
+        </div>
       </div>
 
       {board}
