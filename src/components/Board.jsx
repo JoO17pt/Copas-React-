@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Game from "./Game";
-import "../styles.css"
+import "../styles.css";
 
 const Board = (props) => {
   const [points1, setPoints1] = useState(0);
@@ -35,7 +35,7 @@ const Board = (props) => {
         setRound={setRound}
       ></Game>
     );
-    setHidden('hidden');
+    setHidden("hidden");
   };
 
   const handleReset = (e) => {
@@ -43,31 +43,94 @@ const Board = (props) => {
     setPoints2(0);
     setPoints3(0);
     setPoints4(0);
-    props.setHidden('');
-    props.setBoard(<></>)
+    props.setHidden("");
+    props.setBoard(<></>);
   };
 
   return (
     <>
       <div className={hidden + " board"}>
-        <p>Jogo termina aos {props.endPoints} pontos</p>
-        <p>
-          {props.player1}: {points1} copas
-        </p>
-        <p>
-          {props.player2}: {points2} copas
-        </p>
-        <p>
-          {props.player3}: {points3} copas
-        </p>
-        <p>
-          {props.player4}: {points4} copas
-        </p>
-      
-        <button onClick={handleGame} disabled={disabled} className={disabled ? "hidden" : "heart turn_red"}><p className="button_legend">Nova ronda</p></button>
+        <div>
+          <p>
+            {disabled
+              ? "Fim do jogo."
+              : "Jogo termina aos " + props.endPoints + " pontos"}
+          </p>
 
-        <button onClick={handleReset} className={disabled ? "heart turn_red" : "heart"}><p className="button_legend">Novo jogo</p></button>
+          <div className="scoreBoard">
+            <p
+              className={
+                disabled
+                  ? points1 === Math.max(points1, points2, points3, points4)
+                    ? "red"
+                    : points1 === Math.min(points1, points2, points3, points4)
+                    ? "green"
+                    : ""
+                  : ""
+              }
+            >
+              {props.player1}: {points1} copas
+            </p>
+            <p
+              className={
+                disabled
+                  ? points2 === Math.max(points1, points2, points3, points4)
+                    ? "red"
+                    : points2 === Math.min(points1, points2, points3, points4)
+                    ? "green"
+                    : ""
+                  : ""
+              }
+            >
+              {props.player2}: {points2} copas
+            </p>
+            <p
+              className={
+                disabled
+                  ? points3 === Math.max(points1, points2, points3, points4)
+                    ? "red"
+                    : points3 === Math.min(points1, points2, points3, points4)
+                    ? "green"
+                    : ""
+                  : ""
+              }
+            >
+              {props.player3}: {points3} copas
+            </p>
+            <p
+              className={
+                disabled
+                  ? points4 === Math.max(points1, points2, points3, points4)
+                    ? "red"
+                    : points4 === Math.min(points1, points2, points3, points4)
+                    ? "green"
+                    : ""
+                  : ""
+              }
+            >
+              {props.player4}: {points4} copas
+            </p>
+          </div>
+        </div>
 
+        <div className="heart_container">
+          <button
+            onClick={handleGame}
+            disabled={disabled}
+            className={disabled ? "hidden" : "heart turn_red"}
+          >
+            <p className="button_legend">Nova ronda</p>
+          </button>
+        </div>
+
+        <div className="heart_container">
+          <button
+            onClick={handleReset}
+            className={disabled ? "heart turn_red" : "heart"}
+          >
+            <p className="button_legend">Novo jogo</p>
+          </button>
+        </div>
       </div>
       {game}
     </>

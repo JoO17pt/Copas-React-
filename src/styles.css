@@ -3,12 +3,16 @@ html {
 }
 
 input {
+  font-family: "Comfortaa", cursive;
+}
+
+input {
   width: 90vw;
   text-align: center;
 }
 
 button {
-  width: 5vw;
+  width: 75 px;
   height: 4vh;
   margin: auto;
   border: none;
@@ -18,8 +22,9 @@ button {
 }
 
 .app {
+  margin-top: 5vh;
   text-align: center;
-  height: 90vh;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -77,19 +82,41 @@ button {
 }
 
 .board {
+    margin-top: 5vh;
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 90vh;
+    gap: 10vh;
+    height: 80vh;
 }
 
 .game {
+    margin-top: 5vh;
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 90vh;
+    gap: 10vh;
+    height: 80vh;
+}
+
+.scoreBoard {
+  margin-top: 5vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.resultsBoard {
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+}
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
 }
 
 .hidden {

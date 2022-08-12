@@ -42,11 +42,7 @@ const Game = (props) => {
     }
 
     if (
-      parseInt(points1game.current) +
-        parseInt(points2game.current) +
-        parseInt(points3game.current) +
-        parseInt(points4game.current) ===
-      26
+      parseInt(points1game.current) + parseInt(points2game.current) + parseInt(points3game.current) + parseInt(points4game.current) === 26 && (parseInt(points1game.current) >= 13 || parseInt(points2game.current) >= 13 || parseInt(points3game.current) >= 13 || parseInt(points4game.current) >= 13)
     ) {
       setDisabled(false);
     } else {
@@ -138,54 +134,56 @@ const Game = (props) => {
 
   return (
     <div className="game">
-      <div>
+      <div className="resultsBoard">
         <form onSubmit={handleSubmit}>
           <label>
             <p>{props.player1}:</p>
             <input
               type="number"
+              min="0"
+              max="26"
               name="points1game"
               defaultValue={0}
               onChange={handleChange}
             />
           </label>
         </form>
-      </div>
 
-      <div>
         <form onSubmit={handleSubmit}>
           <label>
             <p>{props.player2}:</p>
             <input
               type="number"
+              min="0"
+              max="26"
               name="points2game"
               defaultValue={0}
               onChange={handleChange}
             />
           </label>
         </form>
-      </div>
 
-      <div>
         <form onSubmit={handleSubmit}>
           <label>
             <p>{props.player3}:</p>
             <input
               type="number"
+              min="0"
+              max="26"
               name="points3game"
               defaultValue={0}
               onChange={handleChange}
             />
           </label>
         </form>
-      </div>
 
-      <div>
         <form onSubmit={handleSubmit}>
           <label>
             <p>{props.player4}:</p>
             <input
               type="number"
+              min="0"
+              max="26"
               name="points4game"
               defaultValue={0}
               onChange={handleChange}
