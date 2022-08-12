@@ -9,6 +9,11 @@ const Game = (props) => {
   let points4game = useRef(0);
   let endGame = useRef(false);
 
+  let [points1Game, Setpoints1Game] = useState(0);
+  let [points2Game, Setpoints2Game] = useState(0);
+  let [points3Game, Setpoints3Game] = useState(0);
+  let [points4Game, Setpoints4Game] = useState(0);
+
   const handleSubmit = (e) => {
     e.preventDefault();
   };
@@ -21,24 +26,28 @@ const Game = (props) => {
   const handleChange = (e) => {
     if (e.target.name == "points1game") {
       points1game.current = e.target.value;
-      if (e.target.value > 13 && e.target.value < 26) {
-        new Audio("/sounds/rameira.mp3").play();
-      }
+      Setpoints1Game(e.target.value);
+      // if (e.target.value > 13 && e.target.value < 26) {
+      //   new Audio("/sounds/rameira.mp3").play();
+      // }
     } else if (e.target.name == "points2game") {
       points2game.current = e.target.value;
-      if (e.target.value > 13 && e.target.value < 26) {
-        new Audio("/sounds/rameira.mp3").play();
-      }
+      Setpoints2Game(e.target.value);
+      // if (e.target.value > 13 && e.target.value < 26) {
+      //   new Audio("/sounds/rameira.mp3").play();
+      // }
     } else if (e.target.name == "points3game") {
       points3game.current = e.target.value;
-      if (e.target.value > 13 && e.target.value < 26) {
-        new Audio("/sounds/rameira.mp3").play();
-      }
+      Setpoints3Game(e.target.value);
+      // if (e.target.value > 13 && e.target.value < 26) {
+      //   new Audio("/sounds/rameira.mp3").play();
+      // }
     } else {
       points4game.current = e.target.value;
-      if (e.target.value > 13 && e.target.value < 26) {
-        new Audio("/sounds/rameira.mp3").play();
-      }
+      Setpoints4Game(e.target.value);
+      // if (e.target.value > 13 && e.target.value < 26) {
+      //   new Audio("/sounds/rameira.mp3").play();
+      // }
     }
 
     if (
@@ -137,56 +146,60 @@ const Game = (props) => {
       <div className="resultsBoard">
         <form onSubmit={handleSubmit}>
           <label>
-            <p>{props.player1}:</p>
+            <p>{props.player1}: {points1Game}</p>
             <input
-              type="number"
+              type="range"
               min="0"
               max="26"
               name="points1game"
               defaultValue={0}
               onChange={handleChange}
+              className="range"
             />
           </label>
         </form>
 
         <form onSubmit={handleSubmit}>
           <label>
-            <p>{props.player2}:</p>
+            <p>{props.player2}: {points2Game}</p>
             <input
-              type="number"
+              type="range"
               min="0"
               max="26"
               name="points2game"
               defaultValue={0}
               onChange={handleChange}
+              className="range"
             />
           </label>
         </form>
 
         <form onSubmit={handleSubmit}>
           <label>
-            <p>{props.player3}:</p>
+            <p>{props.player3}: {points3Game}</p>
             <input
-              type="number"
+              type="range"
               min="0"
               max="26"
               name="points3game"
               defaultValue={0}
               onChange={handleChange}
+              className="range"
             />
           </label>
         </form>
 
         <form onSubmit={handleSubmit}>
           <label>
-            <p>{props.player4}:</p>
+            <p>{props.player4}: {points4Game}</p>
             <input
-              type="number"
+              type="range"
               min="0"
               max="26"
               name="points4game"
               defaultValue={0}
               onChange={handleChange}
+              className="range"
             />
           </label>
         </form>

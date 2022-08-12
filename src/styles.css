@@ -119,6 +119,24 @@ button {
   color: red;
 }
 
+.range[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  background: black;
+  outline: none;
+}
+
+.range[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 0;
+  background: black;
+  cursor: pointer;
+}
+
 .hidden {
     display: none;
   }
