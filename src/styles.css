@@ -123,6 +123,7 @@ button {
   -webkit-appearance: none;
   appearance: none;
   width: 100%;
+  height: 5px;
   background: black;
   outline: none;
 }
@@ -132,8 +133,8 @@ button {
   appearance: none;
   width: 20px;
   height: 20px;
-  border: 0;
-  background: black;
+  border: white ;
+  background: grey;
   cursor: pointer;
 }
 
